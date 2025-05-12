@@ -23,6 +23,18 @@ constructor(customerName, accountNumber = null, balance = 0.00) {
     this.customerName = name;
   }
 
+  get accountNumber() {
+    return this._accountNumber;
+  }
+
+  get balance() {
+    return this._balance;
+  }
+
+  set balance(amount) {
+    this.balance = this.balance + amount;
+    return this._balance;
+  }
 
 
 
