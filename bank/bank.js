@@ -3,24 +3,24 @@ class BankAccount {
 static nextAccountNumber = 100000;
 
 constructor(customerName, accountNumber = null, balance = 0.00) {
-    this.customerName = customerName;
+    this._customerName = customerName;
     
     if (accountNumber !== null) {
-      this.accountNumber = accountNumber;
+      this._accountNumber = accountNumber;
     } else {
-      this.accountNumber = BankAccount.nextAccountNumber++;
+      this._accountNumber = BankAccount.nextAccountNumber++;
     }
   
-    this.balance = Number(balance.toFixed(2));
+    this._balance = Number(balance.toFixed(2));
   }
 
 
   get customerName () {
-    return this.customerName;
+    return this._customerName;
   }
 
   set customerName(name) {
-    this.customerName = name;
+    this._customerName = name;
   }
 
   get accountNumber() {
@@ -32,7 +32,7 @@ constructor(customerName, accountNumber = null, balance = 0.00) {
   }
 
   set balance(amount) {
-    this.balance = this.balance + amount;
+    this.balance = this._balance + amount;
     return this._balance;
   }
 
