@@ -3,7 +3,7 @@ class BankAccount {
 static nextAccountNumber = 100000;
 
 constructor(customerName, accountNumber = null, balance = 0.00) {
-    this._customerName = customerName;
+    this.customerName = customerName;
     
     if (accountNumber !== null) {
       this.accountNumber = accountNumber;
@@ -12,6 +12,15 @@ constructor(customerName, accountNumber = null, balance = 0.00) {
     }
   
     this.balance = Number(balance.toFixed(2));
+  }
+
+
+  get customerName () {
+    return this.customerName;
+  }
+
+  set customerName(name) {
+    this.customerName = name;
   }
 
 
