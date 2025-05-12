@@ -32,17 +32,24 @@ constructor(customerName, accountNumber = null, balance = 0.00) {
   }
 
   set balance(amount) {
-    this.balance += amount;
+    this._balance = this._balance + amount;
     return this._balance;
   }
 
-  deposit(amount) {
-    if (amount > 0) {
-      this._balance += amount;
-      return this._balance;
-    } else {
-      throw new Error("Deposit amount must be positive.");
+
+
+  withdraw(amount) {
+    if (amount <= 0) {
+        throw new Error('cannot withdraw negative');
     }
+    if (amount > this._balance) {
+        throw new Error('insufficient funds'); 
+    }
+    this.balance = this._balance - amount; 
+    return this._balance; 
+   }
+   
   }
 
-}
+
+
