@@ -32,10 +32,17 @@ constructor(customerName, accountNumber = null, balance = 0.00) {
   }
 
   set balance(amount) {
-    this.balance = this._balance + amount;
+    this.balance += amount;
     return this._balance;
   }
 
-
+  deposit(amount) {
+    if (amount > 0) {
+      this._balance += amount;
+      return this._balance;
+    } else {
+      throw new Error("Deposit amount must be positive.");
+    }
+  }
 
 }
